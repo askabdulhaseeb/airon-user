@@ -1,3 +1,4 @@
+import 'package:airon/screens/matamask_screen/matamask_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,9 +13,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Airon',
       theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
         primarySwatch: Colors.blue,
       ),
-      home: const Scaffold(),
+      home: const MatamaskScreen(),
     );
   }
 }
