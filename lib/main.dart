@@ -1,4 +1,5 @@
 import 'package:airon/screens/matamask_screen/matamask_screen.dart';
+import 'package:airon/screens/upload_screen/upload_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +20,11 @@ class MyApp extends StatelessWidget {
         ),
         primarySwatch: Colors.blue,
       ),
-      home: const MatamaskScreen(),
+      home: const UploadScreen(),
+      routes: {
+        MatamaskScreen.routeName: (_) => const MatamaskScreen(),
+        UploadScreen.routeName: (_) => const UploadScreen(),
+      },
     );
   }
 }

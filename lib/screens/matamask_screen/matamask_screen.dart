@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class MatamaskScreen extends StatelessWidget {
   const MatamaskScreen({Key? key}) : super(key: key);
-  static const String routeName = '/MatamaskScreen';
+  static const String routeName = '/matamask-screen';
 
   @override
   Widget build(BuildContext context) {
