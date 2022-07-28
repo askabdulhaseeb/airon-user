@@ -1,11 +1,6 @@
-import 'package:airon/models/app_user.dart';
 import 'package:airon/models/ntf.dart';
-import 'package:airon/providers/user_provider.dart';
 import 'package:airon/utilities/app_images.dart';
-import 'package:airon/widgets/custom/custom_profile_image.dart';
-import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../../widgets/ntf_tile.dart';
 
@@ -54,7 +49,7 @@ class MintsScreen extends StatelessWidget {
                 id: 'id',
                 collection: 'collection',
                 title: 'title',
-                imageURL: '',
+                imageURL: AppImages.demoURL,
                 description: 'description',
                 ethValue: 0.8,
                 visits: ['visits', 'ds', 'sd'],
