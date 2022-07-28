@@ -15,6 +15,7 @@ class BottomNavBar extends StatelessWidget {
           onTap: (int value) => appPro.onTabTapped(value),
           paddingR: const EdgeInsets.all(0),
           dotIndicatorColor: Colors.transparent,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           boxShadow: [
             BoxShadow(
               color: Theme.of(context)
@@ -44,6 +45,7 @@ class BottomNavBar extends StatelessWidget {
             DotNavigationBarItem(
               icon: const Icon(Icons.add_circle_outlined, size: 54),
               selectedColor: Theme.of(context).textTheme.bodyText1!.color,
+              unselectedColor: Theme.of(context).textTheme.bodyText1!.color,
             ),
             DotNavigationBarItem(
               icon: Icon(
