@@ -1,5 +1,7 @@
 import 'package:airon/models/ntf.dart';
+import 'package:airon/providers/app_provider.dart';
 import 'package:airon/providers/user_provider.dart';
+import 'package:airon/screens/main_screen/main_screen.dart';
 import 'package:airon/screens/matamask_screen/matamask_screen.dart';
 import 'package:airon/screens/nft_screens/mints_screen.dart';
 import 'package:airon/screens/nft_screens/ntf_detail_screen.dart';
@@ -21,6 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider.value(value: AppProvider()),
         ChangeNotifierProvider.value(value: UserProvider()),
       ],
       child: MaterialApp(
@@ -33,7 +36,7 @@ class MyApp extends StatelessWidget {
           ),
           primarySwatch: Colors.blue,
         ),
-        home: const CollectionPage(),
+        home: const MainScreen(),
         routes: {
           MatamaskScreen.routeName: (_) => const MatamaskScreen(),
           UploadScreen.routeName: (_) => const UploadScreen(),
