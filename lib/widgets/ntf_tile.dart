@@ -45,7 +45,7 @@ class NftTile extends StatelessWidget {
               }),
             ),
             AspectRatio(
-              aspectRatio: 16 / 9,
+              aspectRatio: 4 / 3,
               child: ExtendedImage.network(
                 nft.imageURL,
                 fit: BoxFit.cover,

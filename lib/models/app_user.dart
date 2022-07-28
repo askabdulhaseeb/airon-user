@@ -6,6 +6,7 @@ class AppUser {
     required this.username,
     required this.email,
     required this.imageURL,
+    this.coverPhoto,
     required this.bio,
     required this.visits,
     required this.address,
@@ -14,6 +15,7 @@ class AppUser {
   final String username;
   final String email;
   final String imageURL;
+  String? coverPhoto;
   final String bio;
   final List<String> visits;
   final String address;
@@ -23,6 +25,7 @@ class AppUser {
       'uid': uid,
       'username': username,
       'imageURL': imageURL,
+      'coverPhoto': coverPhoto,
       'email': email,
       'bio': bio,
       'visits': visits,
@@ -35,6 +38,7 @@ class AppUser {
       uid: map['uid'] ?? '',
       username: map['username'] ?? '',
       imageURL: map['imageURL'] ?? '',
+      coverPhoto: map['coverPhoto'],
       email: map['email'] ?? '',
       bio: map['bio'] ?? '',
       visits: List<String>.from(map['visits']),
