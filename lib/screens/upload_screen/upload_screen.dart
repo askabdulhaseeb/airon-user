@@ -78,9 +78,10 @@ class _UploadScreenState extends State<UploadScreen> {
                 const SizedBox(height: 16),
                 const CustomDropdown(),
                 const SizedBox(height: 16),
-                _smallText('title'),
+                _smallText('Title'),
                 CustomTextFormField(
                   controller: _title,
+                  maxLines: 4,
                   hint: 'Write something here...',
                 ),
                 const SizedBox(height: 20),

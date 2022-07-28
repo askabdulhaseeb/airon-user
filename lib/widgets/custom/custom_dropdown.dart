@@ -13,7 +13,7 @@ class CustomDropdown extends StatelessWidget {
       child: DropdownButtonFormField<String>(
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
         ),
         validator: (String? value) =>
             value == null || value.isEmpty ? 'Select the Collection' : null,
