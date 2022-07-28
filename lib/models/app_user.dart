@@ -5,6 +5,7 @@ class AppUser {
     required this.uid,
     required this.username,
     required this.email,
+    required this.imageURL,
     required this.bio,
     required this.visits,
     required this.address,
@@ -12,6 +13,7 @@ class AppUser {
   final String uid;
   final String username;
   final String email;
+  final String imageURL;
   final String bio;
   final List<String> visits;
   final String address;
@@ -20,6 +22,7 @@ class AppUser {
     return <String, dynamic>{
       'uid': uid,
       'username': username,
+      'imageURL': imageURL,
       'email': email,
       'bio': bio,
       'visits': visits,
@@ -31,6 +34,7 @@ class AppUser {
     return AppUser(
       uid: map['uid'] ?? '',
       username: map['username'] ?? '',
+      imageURL: map['imageURL'] ?? '',
       email: map['email'] ?? '',
       bio: map['bio'] ?? '',
       visits: List<String>.from(map['visits']),
