@@ -4,16 +4,16 @@ import 'package:image_picker/image_picker.dart';
 
 class ImageFunctions {
   Future<File?> imageFromGalary() async {
-    final XFile? _image =
+    final XFile? image =
         await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (_image == null) return null;
-    return File(_image.path);
+    if (image == null) return null;
+    return File(image.path);
   }
 
   Future<File?> imageFromCamera() async {
-    final XFile? _image =
+    final XFile? image =
         await ImagePicker().pickImage(source: ImageSource.camera);
-    if (_image == null) return null;
-    return File(_image.path);
+    if (image == null) return null;
+    return File(image.path);
   }
 }
