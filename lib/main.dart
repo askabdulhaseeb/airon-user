@@ -1,6 +1,8 @@
+import 'package:airon/providers/user_provider.dart';
 import 'package:airon/screens/matamask_screen/matamask_screen.dart';
 import 'package:airon/screens/upload_screen/upload_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,20 +13,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Airon',
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: UserProvider()),
+      ],
+      child: MaterialApp(
+        title: 'Airon',
+        theme: ThemeData(
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+          ),
+          primarySwatch: Colors.blue,
         ),
-        primarySwatch: Colors.blue,
+        home: const UploadScreen(),
+        routes: {
+          MatamaskScreen.routeName: (_) => const MatamaskScreen(),
+          UploadScreen.routeName: (_) => const UploadScreen(),
+        },
       ),
-      home: const UploadScreen(),
-      routes: {
-        MatamaskScreen.routeName: (_) => const MatamaskScreen(),
-        UploadScreen.routeName: (_) => const UploadScreen(),
-      },
     );
   }
 }

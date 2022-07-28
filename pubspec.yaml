@@ -17,6 +17,7 @@ dependencies:
   firebase_core: ^1.20.0
   firebase_storage: ^10.3.4
 
+  provider: ^6.0.3
   shared_preferences: ^2.0.15
   extended_image: ^6.2.1
   image_picker: ^0.8.5+3
