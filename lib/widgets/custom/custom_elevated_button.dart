@@ -37,7 +37,7 @@ class CustomElevatedButton extends StatelessWidget {
           borderRadius: borderRadius ?? BorderRadius.circular(20),
           onTap: onTap,
           child: Container(
-            padding: padding ?? const EdgeInsets.symmetric(vertical: 10),
+            padding: padding ?? const EdgeInsets.symmetric(vertical: 16),
             alignment: Alignment.center,
             child: Text(
               title,
