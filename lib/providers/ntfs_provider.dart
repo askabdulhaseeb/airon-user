@@ -13,6 +13,7 @@ class NTFsProvider extends ChangeNotifier {
         id: 'null',
         collection: 'null',
         title: 'null',
+        imageURL: '',
         description: 'null',
         ethValue: 0,
         visits: [],

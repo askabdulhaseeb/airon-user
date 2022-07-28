@@ -1,5 +1,6 @@
 import 'package:airon/providers/user_provider.dart';
 import 'package:airon/screens/matamask_screen/matamask_screen.dart';
+import 'package:airon/screens/mints_screen/mints_screen.dart';
 import 'package:airon/screens/upload_screen/upload_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Airon',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           appBarTheme: const AppBarTheme(
             backgroundColor: Colors.transparent,
@@ -26,10 +28,11 @@ class MyApp extends StatelessWidget {
           ),
           primarySwatch: Colors.blue,
         ),
-        home: const UploadScreen(),
+        home: const MintsScreen(),
         routes: {
           MatamaskScreen.routeName: (_) => const MatamaskScreen(),
           UploadScreen.routeName: (_) => const UploadScreen(),
+          MintsScreen.routeName: (_) => const MintsScreen(),
         },
       ),
     );

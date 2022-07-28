@@ -6,6 +6,7 @@ class NFT {
     required this.collection,
     required this.title,
     required this.description,
+    required this.imageURL,
     required this.ethValue,
     required this.visits,
     required this.uid,
@@ -15,6 +16,7 @@ class NFT {
   final String collection;
   final String title;
   final String description;
+  final String imageURL;
   final double ethValue;
   final List<String> visits;
   final String uid;
@@ -25,6 +27,7 @@ class NFT {
       'collection': collection,
       'title': title,
       'description': description,
+      'imageURL': imageURL,
       'eth_value': ethValue,
       'visits': visits,
       'uid': uid,
@@ -37,6 +40,7 @@ class NFT {
       collection: map['collection'] ?? '',
       title: map['title'] ?? '',
       description: map['description'] ?? '',
+      imageURL: map['imageURL'] ?? '',
       ethValue: map['eth_value']?.toDouble() ?? 0.0,
       visits: List<String>.from(map['visits']),
       uid: map['uid'] ?? '',
