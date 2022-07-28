@@ -12,6 +12,7 @@ class NftDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: Theme.of(context).iconTheme,
         title: Text(
           'Detail',
           style: TextStyle(color: Theme.of(context).textTheme.bodyText1!.color),
