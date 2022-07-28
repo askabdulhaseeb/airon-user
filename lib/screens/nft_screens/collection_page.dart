@@ -64,7 +64,7 @@ class CollectionPage extends StatelessWidget {
                                     id: 'id',
                                     collection: 'collection',
                                     title: 'title',
-                                    description: 'description',
+                                    description: AppImages.demoText,
                                     imageURL: AppImages.demoURL,
                                     ethValue: 0.9,
                                     visits: ['visits', 'sd', 'ssd'],

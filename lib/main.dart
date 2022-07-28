@@ -5,6 +5,7 @@ import 'package:airon/screens/main_screen/main_screen.dart';
 import 'package:airon/screens/matamask_screen/matamask_screen.dart';
 import 'package:airon/screens/nft_screens/mints_screen.dart';
 import 'package:airon/screens/nft_screens/ntf_detail_screen.dart';
+import 'package:airon/screens/profile_screen/edit_profile_screen.dart';
 import 'package:airon/screens/upload_screen/upload_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
           UploadScreen.routeName: (_) => const UploadScreen(),
           MintsScreen.routeName: (_) => const MintsScreen(),
           CollectionPage.routeName: (_) => const CollectionPage(),
+          EditProfileScreen.routeName: (_) => const EditProfileScreen(),
           NftDetailScreen.routeName: (_) => NftDetailScreen(
                   nft: NFT(
                 id: '-',

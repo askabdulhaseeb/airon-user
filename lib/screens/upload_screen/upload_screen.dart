@@ -38,7 +38,7 @@ class _UploadScreenState extends State<UploadScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 AspectRatio(
-                  aspectRatio: 16 / 9,
+                  aspectRatio: 4 / 3,
                   child: InkWell(
                     onTap: () async {
                       final File? temp =
@@ -89,6 +89,7 @@ class _UploadScreenState extends State<UploadScreen> {
                   title: 'Link Item',
                   onTap: () {},
                 ),
+                const SizedBox(height: 100),
               ],
             ),
           ),

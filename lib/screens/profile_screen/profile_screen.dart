@@ -1,3 +1,4 @@
+import 'package:airon/screens/profile_screen/edit_profile_screen.dart';
 import 'package:airon/utilities/app_images.dart';
 import 'package:flutter/material.dart';
 
@@ -162,7 +163,9 @@ class _AppBar extends StatelessWidget {
         const Spacer(),
         AppBarIconButton(
           icon: Icons.edit_outlined,
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).pushNamed(EditProfileScreen.routeName);
+          },
         ),
         AppBarIconButton(
           icon: Icons.settings_outlined,
