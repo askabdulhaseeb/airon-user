@@ -1,4 +1,6 @@
+import 'package:airon/contract_linking.dart';
 import 'package:airon/models/ntf.dart';
+import 'package:airon/myhome.dart';
 import 'package:airon/providers/app_provider.dart';
 import 'package:airon/providers/user_provider.dart';
 import 'package:airon/screens/main_screen/main_screen.dart';
@@ -26,6 +28,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider.value(value: AppProvider()),
         ChangeNotifierProvider.value(value: UserProvider()),
+        ChangeNotifierProvider.value(value: ContractLinking()),
       ],
       child: MaterialApp(
         title: 'Airon',
@@ -37,7 +40,7 @@ class MyApp extends StatelessWidget {
           ),
           primarySwatch: Colors.blue,
         ),
-        home: const MainScreen(),
+        home: const NFTPage(),
         routes: {
           MatamaskScreen.routeName: (_) => const MatamaskScreen(),
           UploadScreen.routeName: (_) => const UploadScreen(),
