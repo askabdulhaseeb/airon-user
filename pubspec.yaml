@@ -1,0 +1,48 @@
+name: airon
+description: A new Flutter project.
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.5 <3.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  dot_navigation_bar: ^1.0.1+4
+
+  cloud_firestore: ^3.4.1
+  firebase_auth: ^3.6.0
+  firebase_core: ^1.20.0
+  firebase_storage: ^10.3.4
+
+  provider: ^6.0.3
+  shared_preferences: ^2.0.15
+  extended_image: ^6.2.1
+  image_picker: ^0.8.5+3
+
+  intl: ^0.17.0
+  dotted_border: ^2.0.0+2
+
+  fluttertoast: ^8.0.9
+
+  google_maps_flutter: ^2.1.10
+  geolocator: ^9.0.1
+  http: ^0.13.4
+  web3dart: ^2.3.5
+  web_socket_channel: ^2.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/
+    - build/contracts/
+  #   - images/a_dot_ham.jpeg
