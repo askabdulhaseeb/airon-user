@@ -7,14 +7,15 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  final String metamaskaddress;
+  const MainScreen({Key? key, required this.metamaskaddress}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    const List<Widget> _pages = <Widget>[
+    List<Widget> _pages = <Widget>[
       CollectionPage(),
       UploadScreen(),
-      ProfileScreen(),
+      ProfileScreen(metamaskaddress: metamaskaddress),
     ];
     return Scaffold(
       extendBody: true,

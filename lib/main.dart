@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           ),
           primarySwatch: Colors.blue,
         ),
-        home: const MainScreen(),
+        home: const MatamaskScreen(),
         routes: {
           MatamaskScreen.routeName: (_) => const MatamaskScreen(),
           UploadScreen.routeName: (_) => const UploadScreen(),

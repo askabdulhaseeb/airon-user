@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import '../../widgets/custom/app_bar_icon_button.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+  final String metamaskaddress;
+  const ProfileScreen({Key? key, required this.metamaskaddress})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,17 +23,17 @@ class ProfileScreen extends StatelessWidget {
               const _ProfileImages(),
               const SizedBox(height: 16),
               const Text(
-                '@username',
+                'Wallet Address',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               Row(
                 children: <Widget>[
                   SizedBox(
                     width: MediaQuery.of(context).size.width / 3,
-                    child: const Text(
-                      'address',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+                    child: Text(
+                      metamaskaddress,
+                      //maxLines: 1,
+                      //overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   IconButton(

@@ -30,6 +30,9 @@ dependencies:
   google_maps_flutter: ^2.1.10
   geolocator: ^9.0.1
   http: ^0.13.4
+  url_launcher: ^6.1.5
+  walletconnect_dart: ^0.0.11
+  web3dart: ^2.3.5
 
 dev_dependencies:
   flutter_test:
