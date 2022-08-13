@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "708529894429",
+    "project_id": "aaron-c1a42",
+    "storage_bucket": "aaron-c1a42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708529894429:android:2c4dca8f5705ace1b7c2f4",
+        "android_client_info": {
+          "package_name": "com.devmarkaz.airon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708529894429-0ucnkd4krhopj74dd43jfebre7rt9c7m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBe3_W36C3mpjtWSxDZlDib0jF_Nne5D_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708529894429-0ucnkd4krhopj74dd43jfebre7rt9c7m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

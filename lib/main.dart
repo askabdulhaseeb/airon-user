@@ -7,13 +7,17 @@ import 'package:airon/screens/nft_screens/mints_screen.dart';
 import 'package:airon/screens/nft_screens/ntf_detail_screen.dart';
 import 'package:airon/screens/profile_screen/edit_profile_screen.dart';
 import 'package:airon/screens/upload_screen/upload_screen.dart';
+import 'package:airon/screens/upload_screen/uploadscreennext.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'screens/nft_screens/collection_page.dart';
 import 'utilities/app_images.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -37,11 +41,15 @@ class MyApp extends StatelessWidget {
           ),
           primarySwatch: Colors.blue,
         ),
+        //home: MainScreen(metamaskaddress: ''),
         home: const MatamaskScreen(),
         routes: {
           MatamaskScreen.routeName: (_) => const MatamaskScreen(),
-          UploadScreen.routeName: (_) => const UploadScreen(),
+          UploadScreen.routeName: (_) =>
+              const UploadScreen(metamaskaddress: ''),
           MintsScreen.routeName: (_) => const MintsScreen(),
+          uploadScreennext.routeName: (_) => const uploadScreennext(),
+          
           CollectionPage.routeName: (_) => const CollectionPage(),
           EditProfileScreen.routeName: (_) => const EditProfileScreen(),
           NftDetailScreen.routeName: (_) => NftDetailScreen(

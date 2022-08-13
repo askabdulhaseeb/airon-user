@@ -14,7 +14,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> _pages = <Widget>[
       CollectionPage(),
-      UploadScreen(),
+      UploadScreen(metamaskaddress: metamaskaddress),
       ProfileScreen(metamaskaddress: metamaskaddress),
     ];
     return Scaffold(
