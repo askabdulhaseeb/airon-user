@@ -1,3 +1,4 @@
+import 'package:airon/Model/userstate.dart';
 import 'package:airon/providers/app_provider.dart';
 import 'package:airon/screens/main_screen/bottom_navigation_bar.dart';
 import 'package:airon/screens/nft_screens/collection_page.dart';
@@ -6,16 +7,31 @@ import 'package:airon/screens/upload_screen/upload_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   final String metamaskaddress;
   const MainScreen({Key? key, required this.metamaskaddress}) : super(key: key);
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  @override
+  void initState() {
+    super.initState();
+    addData();
+  }
+
+  addData() async {
+    await Provider.of<Userprovider>(context, listen: false).refreshuser();
+  }
 
   @override
   Widget build(BuildContext context) {
     List<Widget> _pages = <Widget>[
       CollectionPage(),
-      UploadScreen(metamaskaddress: metamaskaddress),
-      ProfileScreen(metamaskaddress: metamaskaddress),
+      UploadScreen(metamaskaddress: widget.metamaskaddress),
+      ProfileScreen(metamaskaddress: widget.metamaskaddress),
     ];
     return Scaffold(
       extendBody: true,

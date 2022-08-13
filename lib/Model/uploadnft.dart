@@ -11,7 +11,7 @@ class AuthMethods {
 
   Future<USers> getNFTdetail() async {
     DocumentSnapshot snapshot =
-        await _firestore.collection('users').doc(_auth.currentUser!.uid).get();
+        await _firestore.collection('users').doc().get();
     print(USers.fromsnap(snapshot));
     return USers.fromsnap(snapshot);
   }

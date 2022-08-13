@@ -57,12 +57,12 @@ class _UploadScreenState extends State<UploadScreen> {
     showSnackBar(context, res);
 
     if (res == "Success") {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (BuildContext context) => const uploadScreennext(),
-        ),
-      );
+      // Navigator.pushReplacement(
+      //   context,
+      //   MaterialPageRoute(
+      //     builder: (BuildContext context) => const uploadScreennext(),
+      //   ),
+      // );
     }
     ;
   }

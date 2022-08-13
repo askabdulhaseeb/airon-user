@@ -1,7 +1,7 @@
 import 'package:airon/models/app_user.dart';
 import 'package:flutter/material.dart';
 
-class UserProvider extends ChangeNotifier {
+class UserProviderw extends ChangeNotifier {
   final List<AppUser> _users = <AppUser>[];
 
   AppUser user({required String uid}) {

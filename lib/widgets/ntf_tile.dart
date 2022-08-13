@@ -33,7 +33,7 @@ class NftTile extends StatelessWidget {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Consumer<UserProvider>(builder: (context, userPro, _) {
+              child: Consumer<UserProviderw>(builder: (context, userPro, _) {
                 final AppUser user = userPro.user(uid: nft.uid);
                 return Row(
                   children: <Widget>[

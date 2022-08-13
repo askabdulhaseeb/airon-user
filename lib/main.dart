@@ -1,3 +1,4 @@
+import 'package:airon/Model/userstate.dart';
 import 'package:airon/models/ntf.dart';
 import 'package:airon/providers/app_provider.dart';
 import 'package:airon/providers/user_provider.dart';
@@ -11,7 +12,6 @@ import 'package:airon/screens/upload_screen/uploadscreennext.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'screens/nft_screens/collection_page.dart';
 import 'utilities/app_images.dart';
 
@@ -29,7 +29,10 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: AppProvider()),
-        ChangeNotifierProvider.value(value: UserProvider()),
+        ChangeNotifierProvider.value(value: UserProviderw()),
+        ChangeNotifierProvider(
+          create: (_) => Userprovider(),
+        ),
       ],
       child: MaterialApp(
         title: 'Airon',
@@ -49,7 +52,6 @@ class MyApp extends StatelessWidget {
               const UploadScreen(metamaskaddress: ''),
           MintsScreen.routeName: (_) => const MintsScreen(),
           uploadScreennext.routeName: (_) => const uploadScreennext(),
-          
           CollectionPage.routeName: (_) => const CollectionPage(),
           EditProfileScreen.routeName: (_) => const EditProfileScreen(),
           NftDetailScreen.routeName: (_) => NftDetailScreen(
