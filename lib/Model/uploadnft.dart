@@ -10,7 +10,7 @@ import 'package:flutter/widgets.dart';
 class AuthMethods {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  Future<USers> getNFTdetail(BuildContext context) async {
+  Future<USers> getNFTdetail() async {
     // final globalHelper = Provider.of<GlobalHelper>(context, listen: false);
 
     DocumentSnapshot snapshot = await _firestore

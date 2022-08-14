@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider.value(value: AppProvider()),
         ChangeNotifierProvider.value(value: UserProviderw()),
+        ChangeNotifierProvider.value(value: GlobalHelper()),
         ChangeNotifierProvider(
           create: (_) => Userprovider(),
         ),
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
         ),
         //home: MainScreen(metamaskaddress: ''),
         home: const MatamaskScreen(),
+        // const MatamaskScreen(),
         routes: {
           MatamaskScreen.routeName: (_) => const MatamaskScreen(),
           UploadScreen.routeName: (_) =>

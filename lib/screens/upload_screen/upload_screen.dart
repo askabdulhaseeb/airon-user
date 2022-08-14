@@ -43,7 +43,7 @@ class _UploadScreenState extends State<UploadScreen> {
     setState(() {
       _isloading = true;
     });
-    String res = await AuthMethods().UploadNFT(
+    String res = await AuthMethods().uploadNFT(
       file: _image!,
       metamaskid: Metamaskwallet,
       title: _title.text,

@@ -44,11 +44,13 @@ class _MainScreenState extends State<MainScreen> {
     ];
     return Scaffold(
       extendBody: true,
-      body: isLoading
+      body: 
+      isLoading
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : Consumer<AppProvider>(
+          :
+           Consumer<AppProvider>(
               builder: (context, appPro, _) => _pages[appPro.currentTap],
             ),
       bottomNavigationBar: const BottomNavBar(),
