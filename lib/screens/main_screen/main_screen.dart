@@ -37,7 +37,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> _pages = <Widget>[
+    List<Widget> pages = <Widget>[
       const CollectionPage(),
       UploadScreen(metamaskaddress: widget.metamaskaddress),
       ProfileScreen(metamaskaddress: widget.metamaskaddress),
@@ -51,7 +51,7 @@ class _MainScreenState extends State<MainScreen> {
             )
           :
            Consumer<AppProvider>(
-              builder: (context, appPro, _) => _pages[appPro.currentTap],
+              builder: (context, appPro, _) => pages[appPro.currentTap],
             ),
       bottomNavigationBar: const BottomNavBar(),
     );

@@ -156,7 +156,7 @@ class _MatamaskScreenState extends State<MatamaskScreen> {
 //   var _uri, _signature;
 
 //   loginUsingMetamask(BuildContext context) async {
-//     final globalHelper = Provider.of<GlobalHelper>(context, listen: false);
+    // final globalHelper = Provider.of<GlobalHelper>(context, listen: false);
 
 //     if (!connector.connected) {
 //       try {

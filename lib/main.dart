@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
           EditProfileScreen.routeName: (_) => const EditProfileScreen(),
           NftDetailScreen.routeName: (_) => NftDetailScreen(
                   nft: NFT(
-                id: '-',
+                // id: '-',
                 collection: '-',
                 title: '-',
                 description: '-',

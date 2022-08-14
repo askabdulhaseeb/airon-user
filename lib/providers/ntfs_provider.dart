@@ -5,12 +5,12 @@ class NTFsProvider extends ChangeNotifier {
   List<NFT> _nfts = <NFT>[];
 
   NFT nft({required String id}) {
-    final int index = _nfts.indexWhere((element) => element.id == id);
+    final int index = _nfts.indexWhere((element) => element.uid == id);
     return index < 0 ? _null : _nfts[index];
   }
 
   NFT get _null => NFT(
-        id: 'null',
+        // id: 'null',
         collection: 'null',
         title: 'null',
         imageURL: '',

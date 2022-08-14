@@ -2,7 +2,7 @@ import 'dart:convert';
 
 class NFT {
   NFT({
-    required this.id,
+    // required this.id,
     required this.collection,
     required this.title,
     required this.description,
@@ -12,7 +12,7 @@ class NFT {
     required this.uid,
   });
 
-  final String id;
+  // final String id;
   final String collection;
   final String title;
   final String description;
@@ -23,7 +23,7 @@ class NFT {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'id': id,
+      // 'id': id,
       'collection': collection,
       'title': title,
       'description': description,
@@ -33,10 +33,18 @@ class NFT {
       'uid': uid,
     };
   }
-
+  Map<String, dynamic> toJson() => {
+        'collection': collection,
+      'title': title,
+      'description': description,
+      'imageURL': imageURL,
+      'eth_value': ethValue,
+      'visits': visits,
+      'uid': uid,
+      };
   factory NFT.fromMap(Map<String, dynamic> map) {
     return NFT(
-      id: map['id'] ?? '',
+      // id: map['id'] ?? '',
       collection: map['collection'] ?? '',
       title: map['title'] ?? '',
       description: map['description'] ?? '',
@@ -47,7 +55,7 @@ class NFT {
     );
   }
 
-  String toJson() => json.encode(toMap());
+  // String toJson() => json.encode(toMap());
 
   factory NFT.fromJson(String source) => NFT.fromMap(json.decode(source));
 }

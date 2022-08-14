@@ -10,6 +10,7 @@ import 'package:airon/widgets/custom/custom_textformfield.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:uuid/uuid.dart';
 
 class UploadScreen extends StatefulWidget {
   final String metamaskaddress;
@@ -26,6 +27,7 @@ class _UploadScreenState extends State<UploadScreen> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
   late final String Metamaskwallet;
   final String mtwallet = 'usman123';
+
   void initState() {
     Metamaskwallet = widget.metamaskaddress;
   }
@@ -39,14 +41,20 @@ class _UploadScreenState extends State<UploadScreen> {
     _title.dispose();
   }
 
-  void Uploadnft() async {
+  void uploadNft() async {
     setState(() {
       _isloading = true;
     });
+
     String res = await AuthMethods().uploadNFT(
       file: _image!,
       metamaskid: Metamaskwallet,
       title: _title.text,
+      collection: 'collection',
+      description: 'description',
+      ethValue: 0.9,
+      visits: ['visits', 'sd', 'ssd'],
+      uid: const Uuid().v4(),
     );
     print('yahan tk chala ha');
     print(mtwallet);
@@ -141,10 +149,10 @@ class _UploadScreenState extends State<UploadScreen> {
                 ),
                 const SizedBox(height: 20),
                 _isloading
-                    ? CircularProgressIndicator()
+                    ? const CircularProgressIndicator()
                     : CustomElevatedButton(
                         title: 'Upload NFT',
-                        onTap: Uploadnft,
+                        onTap: uploadNft,
                       ),
                 const SizedBox(height: 100),
               ],
