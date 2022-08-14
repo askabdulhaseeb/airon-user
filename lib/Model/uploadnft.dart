@@ -2,21 +2,27 @@ import 'dart:typed_data';
 
 import 'package:airon/Model/storgaemethod.dart';
 import 'package:airon/Model/user.dart';
+import 'package:airon/utilities/app_images.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/widgets.dart';
 
 class AuthMethods {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  Future<USers> getNFTdetail(BuildContext context) async {
+    // final globalHelper = Provider.of<GlobalHelper>(context, listen: false);
 
-  Future<USers> getNFTdetail() async {
-    DocumentSnapshot snapshot =
-        await _firestore.collection('users').doc().get();
-    print(USers.fromsnap(snapshot));
-    return USers.fromsnap(snapshot);
+    DocumentSnapshot snapshot = await _firestore
+        .collection('users')
+        .doc(session!.accounts[0].toString())
+        .get();
+
+    print(USers.fromDocument(snapshot));
+    return USers.fromDocument(snapshot);
   }
 
-  Future<String> UploadNFT({
+  Future<String> uploadNFT({
     required String metamaskid,
     required String title,
     required Uint8List file,
@@ -34,7 +40,7 @@ class AuthMethods {
             photourl: profileimage,
             metamaskid: metamaskid,
             title: title);
-        await _firestore.collection('users').add(
+        await _firestore.collection('users').doc(metamaskid).set(
               user.toJson(),
             );
         print('idr be ok ha');

@@ -22,22 +22,35 @@ class _MainScreenState extends State<MainScreen> {
     addData();
   }
 
+  bool isLoading = true;
+
   addData() async {
+    setState(() {
+      isLoading = true;
+    });
     await Provider.of<Userprovider>(context, listen: false).refreshuser();
+
+    setState(() {
+      isLoading = false;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     List<Widget> _pages = <Widget>[
-      CollectionPage(),
+      const CollectionPage(),
       UploadScreen(metamaskaddress: widget.metamaskaddress),
       ProfileScreen(metamaskaddress: widget.metamaskaddress),
     ];
     return Scaffold(
       extendBody: true,
-      body: Consumer<AppProvider>(
-        builder: (context, appPro, _) => _pages[appPro.currentTap],
-      ),
+      body: isLoading
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : Consumer<AppProvider>(
+              builder: (context, appPro, _) => _pages[appPro.currentTap],
+            ),
       bottomNavigationBar: const BottomNavBar(),
     );
   }
