@@ -8,6 +8,7 @@ import 'package:airon/widgets/custom/custom_dropdown.dart';
 import 'package:airon/widgets/custom/custom_elevated_button.dart';
 import 'package:airon/widgets/custom/custom_textformfield.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:uuid/uuid.dart';
@@ -27,6 +28,8 @@ class _UploadScreenState extends State<UploadScreen> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
   late final String Metamaskwallet;
   final String mtwallet = 'usman123';
+
+  String collection = 'collection1';
 
   void initState() {
     Metamaskwallet = widget.metamaskaddress;
@@ -139,7 +142,7 @@ class _UploadScreenState extends State<UploadScreen> {
                 const SizedBox(height: 16),
                 _smallText('Collection'),
                 const SizedBox(height: 16),
-                const CustomDropdown(),
+                collectionPicker(),
                 const SizedBox(height: 16),
                 _smallText('Title'),
                 CustomTextFormField(
@@ -159,6 +162,55 @@ class _UploadScreenState extends State<UploadScreen> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  SizedBox collectionPicker({
+    final controller,
+  }) {
+    return SizedBox(
+      // width: 200,
+      height: 80,
+      child: CupertinoPicker(
+        selectionOverlay: null,
+        // squeeze: 1.5,
+        onSelectedItemChanged: (int value) {
+          setState(() {
+            switch (value) {
+              case 0:
+                collection = 'collection1';
+                break;
+              case 1:
+                collection = 'collection2';
+                break;
+              case 2:
+                collection = 'collection3';
+                break;
+              case 3:
+                collection = 'collection4';
+                break;
+            }
+          });
+        },
+        itemExtent: 25,
+        scrollController: controller,
+        useMagnifier: true, diameterRatio: 1,
+        magnification: 1.1,
+        children: const [
+          Text(
+            "collection1",
+          ),
+          Text(
+            "collection2",
+          ),
+          Text(
+            "collection3",
+          ),
+          Text(
+            "collection4",
+          ),
+        ],
       ),
     );
   }

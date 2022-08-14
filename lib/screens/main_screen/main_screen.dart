@@ -29,6 +29,7 @@ class _MainScreenState extends State<MainScreen> {
       isLoading = true;
     });
     await Provider.of<Userprovider>(context, listen: false).refreshuser();
+    await Provider.of<Userprovider>(context, listen: false).getAllNfts();
 
     setState(() {
       isLoading = false;

@@ -12,6 +12,7 @@ import 'package:flutter/widgets.dart';
 class AuthMethods {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  List<NFT> allNfts = <NFT>[];
   Future<USers> getNFTdetail() async {
     // final globalHelper = Provider.of<GlobalHelper>(context, listen: false);
 
@@ -22,6 +23,16 @@ class AuthMethods {
 
     print(USers.fromDocument(snapshot));
     return USers.fromDocument(snapshot);
+  }
+
+  Future<List<NFT>> getAllNFTs() async {
+    // final globalHelper = Provider.of<GlobalHelper>(context, listen: false);
+
+    QuerySnapshot snapshot = await _firestore.collection('nfts').get();
+    snapshot.docs.forEach((e) {
+      allNfts.add(NFT.fromDocument(e));
+    });
+    return allNfts;
   }
 
   Future<String> uploadNFT({
