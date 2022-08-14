@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:airon/Model/storgaemethod.dart';
@@ -51,7 +52,8 @@ class AuthMethods {
       if (title.isNotEmpty) {
         print('ya be ok ha');
         //print(_auth.currentUser!.uid);
-        String profileimage = await Storagemethod().uploadtostorage(file);
+        String profileimage =
+            await Storagemethod().uploadtostorage(file, title);
 
         NFT nft = NFT(
             collection: collection,
@@ -62,7 +64,7 @@ class AuthMethods {
             uid: uid,
             title: title,
             visits: []);
-        nftRef.doc(metamaskid).set(
+        nftRef.doc(uid).set(
               nft.toJson(),
             );
         print('idr be ok ha');

@@ -59,7 +59,7 @@ class CollectionPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            Container(
+            SizedBox(
               // height: 200,
               width: double.infinity,
               child: Column(
@@ -114,7 +114,7 @@ class CollectionPage extends StatelessWidget {
                                 AspectRatio(
                                   aspectRatio: 4 / 3,
                                   child: ExtendedImage.network(
-                                    AppImages.demoURL,
+                                    user.nfts[index].imageURL,
                                     fit: BoxFit.cover,
                                     cache: true,
                                     timeLimit: const Duration(days: 1),
