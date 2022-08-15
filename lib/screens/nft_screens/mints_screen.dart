@@ -46,7 +46,6 @@ class MintsScreen extends StatelessWidget {
             ),
             NftTile(
               nft: NFT(
-                id: 'id',
                 collection: 'collection',
                 title: 'title',
                 imageURL: AppImages.demoURL,

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 class NFT {
   NFT({
-    required this.id,
+    // required this.id,
     required this.collection,
     required this.title,
     required this.description,
@@ -12,18 +12,18 @@ class NFT {
     required this.uid,
   });
 
-  final String id;
+  // final String id;
   final String collection;
   final String title;
   final String description;
   final String imageURL;
   final double ethValue;
-  final List<String> visits;
+  final List visits;
   final String uid;
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'id': id,
+      // 'id': id,
       'collection': collection,
       'title': title,
       'description': description,
@@ -33,10 +33,29 @@ class NFT {
       'uid': uid,
     };
   }
-
+  factory NFT.fromDocument(doc){
+    return NFT(
+      collection: doc.data()['collection'],
+      title: doc.data()['title'],
+      description: doc.data()['description'],
+      imageURL: doc.data()['imageURL'],
+      ethValue: doc.data()['eth_value'],
+      visits: doc.data()['visits'],
+      uid: doc.data()['uid'],
+    );
+  }
+  Map<String, dynamic> toJson() => {
+        'collection': collection,
+      'title': title,
+      'description': description,
+      'imageURL': imageURL,
+      'eth_value': ethValue,
+      'visits': visits,
+      'uid': uid,
+      };
   factory NFT.fromMap(Map<String, dynamic> map) {
     return NFT(
-      id: map['id'] ?? '',
+      // id: map['id'] ?? '',
       collection: map['collection'] ?? '',
       title: map['title'] ?? '',
       description: map['description'] ?? '',
@@ -47,7 +66,7 @@ class NFT {
     );
   }
 
-  String toJson() => json.encode(toMap());
+  // String toJson() => json.encode(toMap());
 
   factory NFT.fromJson(String source) => NFT.fromMap(json.decode(source));
 }

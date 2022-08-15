@@ -1,5 +1,4 @@
 import 'package:airon/models/ntf.dart';
-import 'package:airon/utilities/app_images.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 

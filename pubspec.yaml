@@ -12,10 +12,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   dot_navigation_bar: ^1.0.1+4
 
-  cloud_firestore: ^3.4.1
-  firebase_auth: ^3.6.0
-  firebase_core: ^1.20.0
-  firebase_storage: ^10.3.4
+  cloud_firestore: ^2.5.1
+  firebase_auth: ^3.1.0
+  firebase_core: ^1.6.0
+  firebase_storage: ^10.3.5
 
   provider: ^6.0.3
   shared_preferences: ^2.0.15
@@ -30,11 +30,11 @@ dependencies:
   google_maps_flutter: ^2.1.10
   geolocator: ^9.0.1
   http: ^0.13.4
-  web3dart: ^2.3.5
-  web_socket_channel: ^2.2.0
-  walletconnect_dart: ^0.0.11
-  url_launcher: ^6.1.5
 
+  walletconnect_dart: ^0.0.11
+  web3dart: ^2.3.5
+  uuid:
+  url_launcher:
 dev_dependencies:
   flutter_test:
     sdk: flutter
