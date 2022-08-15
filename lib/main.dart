@@ -1,19 +1,19 @@
 import 'package:airon/Model/userstate.dart';
 import 'package:airon/models/ntf.dart';
+import 'package:airon/myhome.dart';
 import 'package:airon/providers/app_provider.dart';
 import 'package:airon/providers/user_provider.dart';
-import 'package:airon/screens/main_screen/main_screen.dart';
 import 'package:airon/screens/matamask_screen/matamask_screen.dart';
 import 'package:airon/screens/nft_screens/mints_screen.dart';
 import 'package:airon/screens/nft_screens/ntf_detail_screen.dart';
 import 'package:airon/screens/profile_screen/edit_profile_screen.dart';
 import 'package:airon/screens/upload_screen/upload_screen.dart';
 import 'package:airon/screens/upload_screen/uploadscreennext.dart';
+import 'package:airon/utilities/app_images.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'screens/nft_screens/collection_page.dart';
-import 'utilities/app_images.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
