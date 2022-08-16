@@ -164,7 +164,7 @@ class _AppBar extends StatelessWidget {
         AppBarIconButton(
           icon: Icons.edit_outlined,
           onTap: () {
-            Navigator.of(context).pushNamed(EditProfileScreen.routeName);
+            //Navigator.of(context).pushNamed(EditProfileScreen.routeName);
           },
         ),
         AppBarIconButton(

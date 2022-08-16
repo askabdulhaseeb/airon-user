@@ -1,4 +1,10 @@
+<<<<<<< Updated upstream
 import 'package:airon/contract_linking.dart';
+=======
+import 'package:airon/Map/maplocation.dart';
+import 'package:airon/Model/user.dart';
+import 'package:airon/Model/userstate.dart';
+>>>>>>> Stashed changes
 import 'package:airon/models/ntf.dart';
 import 'package:airon/myhome.dart';
 import 'package:airon/providers/app_provider.dart';
@@ -44,16 +50,15 @@ class MyApp extends StatelessWidget {
           MintsScreen.routeName: (_) => const MintsScreen(),
           CollectionPage.routeName: (_) => const CollectionPage(),
           EditProfileScreen.routeName: (_) => const EditProfileScreen(),
+          MyMap.routeName: (_) => const MyMap(),
           NftDetailScreen.routeName: (_) => NftDetailScreen(
-                  nft: NFT(
-                id: '-',
-                collection: '-',
+                  nft: USers(
                 title: '-',
                 description: '-',
-                imageURL: '-',
-                ethValue: 0,
-                visits: [''],
+                ethValue: '',
                 uid: '-',
+                photourl: '',
+                metamaskid: '',
               )),
         },
       ),

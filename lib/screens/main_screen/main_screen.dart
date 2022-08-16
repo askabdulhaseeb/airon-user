@@ -6,8 +6,29 @@ import 'package:airon/screens/upload_screen/upload_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+<<<<<<< Updated upstream
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
+=======
+class MainScreen extends StatefulWidget {
+  final String metamaskaddress;
+  const MainScreen({Key? key, required this.metamaskaddress}) : super(key: key);
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  @override
+  void initState() {
+    super.initState();
+    addData();
+  }
+
+  addData() async {
+    await Provider.of<Userprovider>(context, listen: false).getAllNfts();
+  }
+>>>>>>> Stashed changes
 
   @override
   Widget build(BuildContext context) {

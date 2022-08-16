@@ -31,9 +31,13 @@ dependencies:
   geolocator: ^9.0.1
   http: ^0.13.4
   web3dart: ^2.3.5
+<<<<<<< Updated upstream
   web_socket_channel: ^2.2.0
   walletconnect_dart: ^0.0.11
   url_launcher: ^6.1.5
+=======
+  flutter_polyline_points: ^1.0.0
+>>>>>>> Stashed changes
 
 dev_dependencies:
   flutter_test:

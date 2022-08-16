@@ -1,3 +1,4 @@
+import 'package:airon/Model/user.dart';
 import 'package:airon/models/ntf.dart';
 import 'package:airon/utilities/app_images.dart';
 import 'package:extended_image/extended_image.dart';
@@ -5,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class NftDetailScreen extends StatelessWidget {
   const NftDetailScreen({required this.nft, Key? key}) : super(key: key);
-  final NFT nft;
+  final USers nft;
   static const String routeName = '/nft-detail-screen';
 
   @override
@@ -48,7 +49,7 @@ class NftDetailScreen extends StatelessWidget {
                     AspectRatio(
                       aspectRatio: 4 / 3,
                       child: ExtendedImage.network(
-                        nft.imageURL,
+                        nft.photourl,
                         fit: BoxFit.cover,
                         cache: true,
                         timeLimit: const Duration(days: 1),
@@ -78,7 +79,7 @@ class NftDetailScreen extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              _smallText('Value'),
+                              _smallText('Price'),
                               Text(
                                 '${nft.ethValue} ETH',
                                 style: const TextStyle(
@@ -88,20 +89,21 @@ class NftDetailScreen extends StatelessWidget {
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              _smallText('Visits'),
-                              Text(
-                                '${nft.visits.length}',
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold),
-                              )
-                            ],
+                            children: <Widget>[],
                           )
                         ],
                       ),
                     ),
                   ],
                 ),
+              ),
+            ),
+            const SizedBox(height: 24),
+            Text(
+              nft.metamaskid,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
               ),
             ),
             const SizedBox(height: 24),

@@ -6,6 +6,11 @@ import 'package:airon/widgets/custom/custom_elevated_button.dart';
 import 'package:airon/widgets/custom/custom_textformfield.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+<<<<<<< Updated upstream
+=======
+import 'package:image_picker/image_picker.dart';
+import 'package:uuid/uuid.dart';
+>>>>>>> Stashed changes
 
 class UploadScreen extends StatefulWidget {
   const UploadScreen({Key? key}) : super(key: key);
@@ -17,9 +22,65 @@ class UploadScreen extends StatefulWidget {
 
 class _UploadScreenState extends State<UploadScreen> {
   final TextEditingController _title = TextEditingController();
+  final TextEditingController _description = TextEditingController();
+  final TextEditingController _ethvalue = TextEditingController();
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
+<<<<<<< Updated upstream
+=======
+  var uuid = Uuid();
+  late final String Metamaskwallet;
+  void initState() {
+    Metamaskwallet = widget.metamaskaddress;
+  }
+
+>>>>>>> Stashed changes
   File? file;
   @override
+<<<<<<< Updated upstream
+=======
+  void dispose() {
+    super.dispose();
+    _title.dispose();
+  }
+
+  void Uploadnft() async {
+    setState(() {
+      _isloading = true;
+    });
+    String res = await AuthMethods().UploadNFT(
+      file: _image!,
+      metamaskid: Metamaskwallet,
+      title: _title.text,
+      description: _description.text,
+      ethValue: _ethvalue.text,
+      uid: uuid.v4(),
+    );
+    print('yahan tk chala ha');
+    print(_title.text);
+    setState(() {
+      _isloading = false;
+    });
+    showSnackBar(context, res);
+
+    if (res == "Success") {
+      // Navigator.pushReplacement(
+      //   context,
+      //   MaterialPageRoute(
+      //     builder: (BuildContext context) => const uploadScreennext(),
+      //   ),
+      // );
+    }
+    ;
+  }
+
+  void selectimage() async {
+    Uint8List? im = await pickImage(ImageSource.gallery);
+    setState(() {
+      _image = im;
+    });
+  }
+
+>>>>>>> Stashed changes
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -74,15 +135,25 @@ class _UploadScreenState extends State<UploadScreen> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                _smallText('Collection'),
-                const SizedBox(height: 16),
-                const CustomDropdown(),
-                const SizedBox(height: 16),
                 _smallText('Title'),
                 CustomTextFormField(
                   controller: _title,
                   maxLines: 4,
                   hint: 'Write something here...',
+                ),
+                const SizedBox(height: 16),
+                _smallText('Description'),
+                CustomTextFormField(
+                  controller: _description,
+                  maxLines: 4,
+                  hint: 'Write something here...',
+                ),
+                const SizedBox(height: 16),
+                TextFormField(
+                  controller: _ethvalue,
+                  decoration: InputDecoration(
+                    hintText: 'Price',
+                  ),
                 ),
                 const SizedBox(height: 20),
                 CustomElevatedButton(
