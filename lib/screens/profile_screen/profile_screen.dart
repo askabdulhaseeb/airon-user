@@ -1,62 +1,131 @@
 import 'package:airon/screens/profile_screen/edit_profile_screen.dart';
 import 'package:airon/utilities/app_images.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/custom/app_bar_icon_button.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   final String metamaskaddress;
   const ProfileScreen({Key? key, required this.metamaskaddress})
       : super(key: key);
 
   @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  String Uname = '';
+  String Username = '';
+  String bio = '';
+  String photourl = '';
+  bool _isloading = false;
+  int _totalpost = 0;
+
+  void initState() {
+    super.initState();
+    GetUsername();
+  }
+
+  void GetUsername() async {
+    setState(() {
+      _isloading = true;
+    });
+    DocumentSnapshot snapshot = await FirebaseFirestore.instance
+        .collection('profile')
+        .doc(widget.metamaskaddress)
+        .get();
+    QuerySnapshot<Map<String, dynamic>> snapshot2 = await FirebaseFirestore
+        .instance
+        .collection('demodatah')
+        .where('metamaskid', isEqualTo: widget.metamaskaddress)
+        .get();
+    print('usmanafzalbajwa');
+    print(snapshot2.docs.length);
+    setState(() {
+      _totalpost = snapshot2.docs.length;
+      Uname = (snapshot.data() as Map<String, dynamic>)['name'];
+      Username = (snapshot.data() as Map<String, dynamic>)['username'];
+      bio = (snapshot.data() as Map<String, dynamic>)['bio'];
+      photourl = (snapshot.data() as Map<String, dynamic>)['profilephotourl'];
+    });
+    setState(() {
+      _isloading = false;
+    });
+    print(Uname);
+    print(snapshot.data());
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              const _AppBar(),
-              const SizedBox(height: 16),
-              const _ProfileImages(),
-              const SizedBox(height: 16),
-              const Text(
-                'Wallet Address',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-              Row(
-                children: <Widget>[
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width / 3,
-                    child: Text(
-                      metamaskaddress,
-                      //maxLines: 1,
-                      //overflow: TextOverflow.ellipsis,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                _AppBar(metamaskaddress: widget.metamaskaddress),
+                const SizedBox(height: 16),
+                _isloading
+                    ? Center(child: CircularProgressIndicator())
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: MediaQuery.of(context).size.width * 0.8,
+                            width: MediaQuery.of(context).size.width * 0.8,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: NetworkImage(photourl),
+                                    fit: BoxFit.fill)),
+                          ),
+                        ],
+                      ),
+                const SizedBox(height: 16),
+                Text(
+                  Uname.toString(),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+                Text(
+                  '@ ' + Username,
+                  style: TextStyle(fontSize: 13, color: Colors.grey),
+                ),
+                Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 3,
+                      child: Text(
+                        widget.metamaskaddress,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                  ),
-                  IconButton(
-                    splashRadius: 16,
-                    onPressed: () {},
-                    icon: const Icon(Icons.copy),
-                  ),
-                ],
-              ),
-              const Text(
-                'Bio',
-                maxLines: 4,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: Colors.grey),
-              ),
-              Row(
-                children: const <Widget>[
-                  Flexible(child: _InfoTile(title: 'Collection', count: 234)),
-                  SizedBox(width: 16),
-                  Flexible(child: _InfoTile(title: 'Visits', count: 234)),
-                ],
-              ),
-            ],
+                    IconButton(
+                      splashRadius: 16,
+                      onPressed: () {},
+                      icon: const Icon(Icons.copy),
+                    ),
+                  ],
+                ),
+                Text(
+                  bio,
+                  maxLines: 4,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(color: Colors.grey),
+                ),
+                Row(
+                  children: <Widget>[
+                    Flexible(
+                        child:
+                            _InfoTile(title: 'Collection', count: _totalpost)),
+                    SizedBox(width: 16),
+                    Flexible(child: _InfoTile(title: 'Visits', count: 1)),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -147,9 +216,8 @@ class _ProfileImages extends StatelessWidget {
 }
 
 class _AppBar extends StatelessWidget {
-  const _AppBar({
-    Key? key,
-  }) : super(key: key);
+  final String metamaskaddress;
+  const _AppBar({Key? key, required this.metamaskaddress}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -166,7 +234,13 @@ class _AppBar extends StatelessWidget {
         AppBarIconButton(
           icon: Icons.edit_outlined,
           onTap: () {
-            Navigator.of(context).pushNamed(EditProfileScreen.routeName);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    EditProfileScreen(metamaskaddress: metamaskaddress),
+              ),
+            );
           },
         ),
         AppBarIconButton(

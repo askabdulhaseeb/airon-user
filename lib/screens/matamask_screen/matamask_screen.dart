@@ -1,3 +1,4 @@
+import 'package:airon/providers/eth.dart';
 import 'package:airon/screens/main_screen/main_screen.dart';
 import 'package:airon/utilities/app_images.dart';
 import 'package:airon/widgets/custom/custom_elevated_button.dart';
@@ -34,6 +35,7 @@ class _MatamaskScreenState extends State<MatamaskScreen> {
           await launchUrlString(uri, mode: LaunchMode.externalApplication);
         });
         print(session.accounts[0]);
+        metamaskaddress = session.accounts[0].toString();
         setState(() {
           _session = session;
         });
@@ -118,8 +120,6 @@ class _MatamaskScreenState extends State<MatamaskScreen> {
                   ],
                 ),
               )
-            : MainScreen(
-                metamaskaddress: session.accounts[0].toString(),
-              ));
+            : const MainScreen());
   }
 }

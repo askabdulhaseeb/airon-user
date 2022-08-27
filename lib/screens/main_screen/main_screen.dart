@@ -7,9 +7,12 @@ import 'package:airon/screens/upload_screen/upload_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../providers/eth.dart';
+
 class MainScreen extends StatefulWidget {
-  final String metamaskaddress;
-  const MainScreen({Key? key, required this.metamaskaddress}) : super(key: key);
+  const MainScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -23,15 +26,15 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   addData() async {
-    await Provider.of<Userprovider>(context, listen: false).refreshuser();
+    await Provider.of<Userprovider>(context, listen: false).getAllNfts();
   }
 
   @override
   Widget build(BuildContext context) {
     List<Widget> _pages = <Widget>[
-      CollectionPage(),
-      UploadScreen(metamaskaddress: widget.metamaskaddress),
-      ProfileScreen(metamaskaddress: widget.metamaskaddress),
+      CollectionPage(metamaskaddress: metamaskaddress!),
+      UploadScreen(metamaskaddress: metamaskaddress!),
+      ProfileScreen(metamaskaddress: metamaskaddress!),
     ];
     return Scaffold(
       extendBody: true,

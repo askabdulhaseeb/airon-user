@@ -1,3 +1,5 @@
+import 'package:airon/Map/maplocation.dart';
+import 'package:airon/Model/user.dart';
 import 'package:airon/Model/userstate.dart';
 import 'package:airon/models/ntf.dart';
 import 'package:airon/providers/app_provider.dart';
@@ -9,6 +11,7 @@ import 'package:airon/screens/nft_screens/ntf_detail_screen.dart';
 import 'package:airon/screens/profile_screen/edit_profile_screen.dart';
 import 'package:airon/screens/upload_screen/upload_screen.dart';
 import 'package:airon/screens/upload_screen/uploadscreennext.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -52,18 +55,19 @@ class MyApp extends StatelessWidget {
               const UploadScreen(metamaskaddress: ''),
           MintsScreen.routeName: (_) => const MintsScreen(),
           uploadScreennext.routeName: (_) => const uploadScreennext(),
-          CollectionPage.routeName: (_) => const CollectionPage(),
-          EditProfileScreen.routeName: (_) => const EditProfileScreen(),
+          CollectionPage.routeName: (_) => CollectionPage(metamaskaddress: ''),
+          MyMap.routeName: (_) => MyMap(metamaskaddress: ''),
+          EditProfileScreen.routeName: (_) =>
+              EditProfileScreen(metamaskaddress: ''),
           NftDetailScreen.routeName: (_) => NftDetailScreen(
-                  nft: NFT(
-                id: '-',
-                collection: '-',
+                  nft: USers(
+                datePublished: Timestamp.fromDate(DateTime.now()),
                 title: '-',
                 description: '-',
-                imageURL: '-',
-                ethValue: 0,
-                visits: [''],
+                ethValue: '',
                 uid: '-',
+                photourl: '',
+                metamaskid: '',
               )),
         },
       ),
