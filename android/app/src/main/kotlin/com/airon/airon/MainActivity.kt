@@ -1,4 +1,4 @@
-package com.devmarkaz.airon
+package com.airon.airon
 
 import io.flutter.embedding.android.FlutterActivity
 
